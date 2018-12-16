@@ -1,21 +1,25 @@
 package com.example.dynamicquery.models;
 
 
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 @ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class City {
 
     @Id
     @GeneratedValue
     private long id;
     private String name;
-    private String countryCode;
     private String district;
     private long population;
 
@@ -38,13 +42,6 @@ public class City {
     }
 
 
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
 
 
     public String getDistrict() {
