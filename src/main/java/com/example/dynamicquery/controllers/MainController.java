@@ -1,7 +1,6 @@
 package com.example.dynamicquery.controllers;
 
 import com.example.dynamicquery.dao.CityDAO;
-import com.example.dynamicquery.dao.CityPredicate;
 import com.example.dynamicquery.dao.CitySpecification;
 import com.example.dynamicquery.models.City;
 import com.example.dynamicquery.models.CustomCondition;
@@ -45,14 +44,27 @@ public class MainController {
     }
 
 
+//    @GetMapping("/predicate/{population}")
+//    public String predicate(Model model, @PathVariable String population) {
+//
+//        List<City> list = cityDAO.findAll(
+//                new CityPredicate(
+//                        new CustomCondition(population, "population", "gt"),
+//                        new CustomCondition("Shandong", "district", "eq"))
+//        );
+//        System.out.println(list);
+//        model.addAttribute("cities", list);
+//        return "index";
+//    }
+
+
     @GetMapping("/predicate/{population}")
     public String predicate(Model model, @PathVariable String population) {
 
         List<City> list = cityDAO.findAll(
-                new CityPredicate(
-                        new CustomCondition(population, "population", "gt"),
-                        new CustomCondition("Shandong", "district", "eq"))
+                CitySpecification.equalSpecification(new CustomCondition(population, "population", "eq"))
         );
+
         System.out.println(list);
         model.addAttribute("cities", list);
         return "index";
