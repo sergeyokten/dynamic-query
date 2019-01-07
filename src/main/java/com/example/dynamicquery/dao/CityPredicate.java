@@ -18,10 +18,12 @@ import java.util.Arrays;
 import java.util.List;
 
 
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+// no need to use!!!!!!!!!!
 public class CityPredicate implements Specification<City> {
 
 
