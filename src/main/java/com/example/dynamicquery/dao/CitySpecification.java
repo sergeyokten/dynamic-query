@@ -36,9 +36,9 @@ public class CitySpecification {
         return (root, criteriaQuery, criteriaBuilder) ->
                 criteriaBuilder.and(
                         conditions.stream().map(
-                                customCondition -> criteriaBuilder.gt(root.get(customCondition.getField()),
+                                condition -> criteriaBuilder.gt(root.get(condition.getField()),
                                         //  todo do for all types need to define type
-                                        Integer.parseInt(customCondition.getValue())))
+                                        Integer.parseInt(condition.getValue())))
                                 .collect(Collectors.toList())
                                 .toArray(new Predicate[conditions.size()]));
     }

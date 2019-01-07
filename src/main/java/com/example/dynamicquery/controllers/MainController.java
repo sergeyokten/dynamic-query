@@ -45,18 +45,18 @@ public class MainController {
     }
 
 
-    @GetMapping("/predicate/{population}")
-    public String predicatex(Model model, @PathVariable String population) {
-
-        List<City> list = cityDAO.findAll(
-                new CityPredicate(
-                        new CustomCondition(population, "population", "gt"),
-                        new CustomCondition("Shandong", "district", "eq"))
-        );
-        System.out.println(list);
-        model.addAttribute("cities", list);
-        return "index";
-    }
+//    @GetMapping("/predicate/{population}")
+//    public String predicatex(Model model, @PathVariable String population) {
+//
+//        List<City> list = cityDAO.findAll(
+//                new CityPredicate(
+//                        new CustomCondition(population, "population", "gt"),
+//                        new CustomCondition("Shandong", "district", "eq"))
+//        );
+//        System.out.println(list);
+//        model.addAttribute("cities", list);
+//        return "index";
+//    }
 
 
     @GetMapping("/predicate/{population}")
