@@ -23,7 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-// no need to use!!!!!!!!!!
+// this is analogue!!!!!!!!!!
 public class CityPredicate implements Specification<City> {
 
 
